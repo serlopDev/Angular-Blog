@@ -1,0 +1,22 @@
+    <article class="article-item" id="article-item">
+        <div class="image-wrap">
+            <img class="imgArt" src="{{pelicula.image}}" alt="foto-artículo">
+        </div>
+        <div class="articleText">
+        <h2>{{pelicula.title}}</h2>
+        <span class="year" [ngClass]="{
+            'year-green': pelicula.year < 2016,
+            'year-red': pelicula.year >= 2016
+        }"
+        >
+            {{pelicula.year}}
+        </span>
+            <span class="dateArt">Hace 5 minutos</span>
+            <a href="/article.html">Leer más</a>
+    </div>
+    <button [ngClass]="{'icon-favorito-vacio': !seleccionado,
+                        'icon-favorito-marcado' :seleccionado
+    }" 
+    (click)="seleccionar($event, pelicula)">
+    </button>
+    </article>

@@ -1,0 +1,23 @@
+<app-jumbotron [name]="'Página'" [size]="'big'"></app-jumbotron>
+<div class="content">
+  <div class="content-content">
+    <h1 class="page-title">Página de pruebas</h1>
+
+    <div
+      *ngIf="nombre && apellido; then siHayParametros; else noHayParametros"
+    ></div>
+
+    <ng-template #siHayParametros>
+      <h2>El nombre es: {{ nombre }}</h2>
+      <h2>El apellido es: {{ apellido }}</h2>
+    </ng-template>
+
+    <ng-template #noHayParametros>
+      <h2>NO hay parámetros por la URL que mostrar</h2>
+    </ng-template>
+  </div>
+
+  <div class="sidebar-content">
+    <app-side-bar></app-side-bar>
+  </div>
+</div>

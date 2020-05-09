@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+
+  /* Fuentes de letra */
+
+  font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smooothing: antialiased;
+  -moz-font-smooothing: antialiased;
+  -moz-osx-font-smooothing: antialiased;
+  font-size: 10px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.content-content{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 40vh;
+}

@@ -1,0 +1,6 @@
+<section id="jumbotron" [ngClass]="{'jumbotron': !size || size =='big',
+                                    'jumbotron-small': size == 'small'
+}">
+    <h1>{{name}}</h1>
+    <a [routerLink]="['/blog']" class="blogBtn" *ngIf="!size || size == 'big'">Ir a mi BLOG</a>
+</section>

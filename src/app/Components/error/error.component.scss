@@ -1,0 +1,15 @@
+.content-error{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.error-title{
+    font-size: 2rem;
+    color: black;
+}
+.error-text{
+    font-size: 1.2rem;
+    color: black;
+}

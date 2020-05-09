@@ -1,0 +1,21 @@
+<div class="loading" *ngIf='!articles'>
+    <img src="../../../assets/images/loading/cargando.gif" alt="Cargando página">
+</div>
+
+<div class="loading" *ngIf='articles && articles.length == 0'>
+    <p class="error-search">No hay resultados en tu búsqueda, inténtalo de nuevo más tarde</p>
+</div>
+
+<div *ngIf='articles'>
+<div class="article-item" *ngFor="let article of articles">
+        <div class="image-wrap">
+            <img class="imgArt" src="{{url + 'get-image/' + article.image}}" alt="foto-artículo" *ngIf="article.image">
+            <img class="imgArt" src="../assets/images/unnamed.png" alt="foto-artículo" *ngIf="!article.image">
+        </div>
+        <div class="articleText">
+            <h2>{{article.title}}</h2>
+            <span class="dateArt">{{article.date | amLocale: 'es' | amTimeAgo }}</span>
+            <a [routerLink]="['/blog/articulo/', article._id]">Leer más</a>
+    </div>
+</div>
+</div>

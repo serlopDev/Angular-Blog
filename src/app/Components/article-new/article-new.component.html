@@ -1,0 +1,52 @@
+<div class="content">
+
+<div class="content-content">
+    <h1 class="form-title">{{title_page}}</h1>
+
+        <div class="div-form">
+            
+            <form class="mid-form" #articleForm='ngForm' (ngSubmit)="onSubmit()">
+
+            <div class="form-group-CA">
+                <label class="title-CA" for="title">Título</label>
+                <input name="title" type="text" #title='ngModel' [(ngModel)] ="article.title" required/>
+                
+                <small *ngIf="!title.valid && title.touched">
+                    El título es obligatorio
+                </small>
+
+            </div>
+
+            <div class="form-group-CA">
+                <label  class="content-CA" for="bio">Contenido</label>
+                <textarea name="content" id="content" #content="ngModel" [(ngModel)]="article.content" required></textarea>
+                                
+                <small *ngIf="!content.valid && content.touched">
+                    Es obligatorio introducir el contenido del artículo
+                </small>
+
+                <div class='img-NA' *ngIf="is_edit">
+                    <img src="{{url + 'get-image/' + article.image}}" alt="foto-artículo" *ngIf="article.image">
+                    <img src="../assets/images/unnamed.png" alt="foto-artículo" *ngIf="!article.image">
+                </div>
+
+                <angular-file-uploader
+                    [config]="afuConfig"
+                    (ApiResponse)="uploadImage($event)">
+                </angular-file-uploader>
+
+            </div>
+                            
+       
+
+            <input type="submit" value="{{valor_boton}}" class="btn-Create" [disabled]="articleForm.invalid"/>
+
+            </form>
+
+
+    </div>
+</div>
+
+<div class="sidebar-content">
+    <app-side-bar></app-side-bar>
+</div>

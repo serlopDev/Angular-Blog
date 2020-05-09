@@ -1,0 +1,66 @@
+<app-jumbotron [name]="'Formulario'" [size]="'small'"></app-jumbotron>
+<div class="content">
+
+<div class="content-content">
+    <h1 class="form-title">Formulario</h1>
+
+        <div class="div-form">
+            
+            <form class="mid-form" #userForm='ngForm' (ngSubmit)="enviarDatos()">
+
+            <div class="form-group">
+                <label class="name" for="name">Nombre</label>
+                <input name="name" type="text" #name='ngModel' [(ngModel)] ="user.name" required pattern="[a-zA-Z]+"/>
+                
+                <small *ngIf="!name.valid && name.touched">
+                    El nombre no puede contener números
+                </small>
+
+            </div>
+
+            <div class="form-group">
+                <label class="surname" for="surname">Apellidos</label>
+                <input name="surname" type="text" #surname='ngModel' [(ngModel)] ="user.surname" required pattern="[a-zA-Z]+"/>
+                                
+                <small *ngIf="!surname.valid && surname.touched">
+                    El apellido no puede contener números
+                </small>
+                
+            </div>
+
+            <div class="form-group">
+                <label  class="bio" for="bio">Biografía</label>
+                <textarea name="bio" id="bio" #bio="ngModel" [(ngModel)]="user.bio" required pattern="^([a-zA-Z]){0,250}$"></textarea>
+                                
+                <small *ngIf="!bio.valid && bio.touched">
+                    La biografía no puede tener más de 250 carácteres
+                </small>
+                
+            </div>
+
+            <div class="form-group">
+                
+                <label  class="radio-text" for="radio-buttons">Hombre</label>
+                <input name="genre" type="radio" class="radio-buttons" value="hombre" #genre='ngModel' [(ngModel)] ="user.genre" required/>
+                <label  class="radio-text" for="radio-buttons">Mujer</label >
+                <input name="genre"type="radio" class="radio-buttons" value="mujer" #genre='ngModel' [(ngModel)] ="user.genre" required/>
+                <label  class="radio-text" for="radio-buttons">Otro</label>
+                <input name="genre" type="radio" class="radio-buttons" value="otro" #genre='ngModel' [(ngModel)] ="user.genre" required/>
+
+                <small *ngIf="!genre.valid && genre.touched">
+                    Debes seleccionar un género
+                </small>
+                
+            </div>
+
+            <input type="submit" value="Enviar" class="btn-Create" [disabled]="userForm.invalid">
+
+            </form>
+
+
+    </div>
+</div>
+
+<div class="sidebar-content">
+    <app-side-bar></app-side-bar>
+</div>

@@ -1,0 +1,37 @@
+<app-jumbotron [name]="'Películas'" [size]="'big'"></app-jumbotron>
+<div class="content">
+
+<div class="content-content">
+
+    <h1 class="films-title">Película Favorita</h1>
+
+    <hr class="bar-film"/>
+
+    <div class="favorite-film" *ngIf="favorita">
+        
+        <div class="image-wrap">
+            <img class="imgArt" src="{{favorita.image}}" alt="foto-artículo">
+        </div>
+        <div class="articleText">
+            <h2>{{favorita.title}}</h2>
+            <h2>{{favorita.year}}</h2>
+        </div>
+    </div>
+
+
+<h1 class="films-title">Películas</h1>
+
+<hr class="bar-film"/>
+
+<div *ngFor="let pelicula of peliculas">
+    <app-pelicula [pelicula]="pelicula"
+                  (MarcarFavorita)="mostrarFavorita($event)"
+    >
+    </app-pelicula>
+</div>
+</div>
+
+<div class="sidebar-content">
+    <app-side-bar></app-side-bar>
+</div>
+</div>
